@@ -3,16 +3,94 @@ name = "f1"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "elisiara",email = "elisiara@xc-erp.com"}
+    {name = "elisiara", email = "elisiara@xc-erp.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
 ]
 
-[tool.poetry]
-packages = [{include = "f1", from = "src"}]
-
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{include = "f1", from = "src"}]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.0"
+pytest-cov = "^6.0.0"
+ruff = "^0.9.0"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.6.0"
+mkdocs-material = "^9.5.0"
+
+# ==============================================================================
+# Configurações do Ruff (Linter & Formatter)
+# ==============================================================================
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+    "SIM",    # flake8-simplify
+    "TCH",    # flake8-type-checking
+    "RUF",    # regras do Ruff
+]
+ignore = [
+    "E501",   # comprimento de linha tratado pelo formatador
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["f1"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# ==============================================================================
+# Configurações do Pytest e Cobertura Mínima Obrigatória (50%)
+# ==============================================================================
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = """
+    --cov=src/f1
+    --cov-report=term-missing
+    --cov-fail-under=50
+    -ra -q
+"""
+
+[tool.coverage.run]
+source = ["src/f1"]
+branch = true
+omit = [
+    "*/__init__.py",
+    "*/tests/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+fail_under = 50
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+
