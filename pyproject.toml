@@ -1,13 +1,17 @@
 [project]
 name = "f1"
 version = "0.1.0"
-description = ""
+description = "Pipeline de Engenharia de Dados para ingestão, validação, transformação e análise de dados da Fórmula 1 via OpenF1 API."
 authors = [
     {name = "elisiara", email = "elisiara@xc-erp.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "pandas>=2.2.0",
+    "pyarrow>=18.0.0,<=20.0.0",
+    "requests>=2.32.0",
+    "urllib3>=2.2.0",
 ]
 
 [build-system]

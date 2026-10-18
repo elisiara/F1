@@ -1,0 +1,45 @@
+site_name: Engenharia de Dados F1
+site_description: Documentação técnica e arquitetural dos pipelines de dados da Fórmula 1
+site_author: Equipe de Engenharia de Dados
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    - scheme: default
+      primary: red
+      accent: red
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo claro
+  features:
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+nav:
+  - Início: index.md
+  - Arquitetura:
+      - Visão Geral: arquitetura/visao_geral.md
+      - Padrões de Dados: arquitetura/padroes_dados.md
+  - Conectores:
+      - OpenF1 API: conectores/openf1.md
+  - Pipelines:
+      - Telemetria: pipelines/telemetria.md
+  - Guia de Desenvolvimento:
+      - Setup e Comandos: desenvolvimento/setup.md
+      - Qualidade e Testes: desenvolvimento/qualidade.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+
