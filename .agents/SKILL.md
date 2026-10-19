@@ -5,10 +5,10 @@ description: Regras, convenções, boas práticas e padrões obrigatórios para 
 
 # SKILL: Engenharia de Dados com Python — Padrões e Práticas Obrigatórias
 
-**Status**: Obrigatório / Fonte Única da Verdade (SSOT)  
-**Público-alvo**: Engenheiros de Dados, Desenvolvedores de Software e Agentes de IA  
-**Versão do Python**: `>= 3.12`  
-**Ferramental Oficial**: Poetry, Ruff, Pytest, Pytest-cov, MkDocs Material  
+**Status**: Obrigatório / Fonte Única da Verdade (SSOT)
+**Público-alvo**: Engenheiros de Dados, Desenvolvedores de Software e Agentes de IA
+**Versão do Python**: `>=3.12,<4.0`
+**Ferramental Oficial**: Poetry, Ruff, Pytest, Pytest-cov, MkDocs Material, Streamlit
 
 ---
 
@@ -138,6 +138,7 @@ projeto/
 ├── src/
 │   └── f1/                     # Pacote Python principal da aplicação
 │       ├── __init__.py         # Inicializador do pacote e exportações explícitas
+        ├── dashboard.py        # composition root Streamlit
 │       ├── config/             # Configurações de ambiente, URLs base, leitura de .env
 │       │   ├── __init__.py
 │       │   └── settings.py
