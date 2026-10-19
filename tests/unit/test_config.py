@@ -53,4 +53,3 @@ def test_ensure_directories(tmp_path: Path) -> None:
     settings.ensure_directories()
     assert settings.raw_data_dir.exists()
     assert settings.processed_data_dir.exists()
-

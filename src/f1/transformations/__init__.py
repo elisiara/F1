@@ -35,4 +35,3 @@ __all__ = [
     "parse_mini_sector_code",
     "sort_sessions_by_date",
 ]
-

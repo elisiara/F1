@@ -82,9 +82,13 @@ def main() -> None:
     year = st.sidebar.selectbox("Temporada", years, index=0)
 
     meetings = service.client.fetch_meetings(year=year)
-    meeting_options = [m.get("meeting_name", str(m.get("meeting_key"))) for m in meetings]
+    meeting_options = [
+        m.get("meeting_name", str(m.get("meeting_key"))) for m in meetings
+    ]
     meeting_choice = (
-        st.sidebar.selectbox("GP / Meeting", meeting_options) if meeting_options else None
+        st.sidebar.selectbox("GP / Meeting", meeting_options)
+        if meeting_options
+        else None
     )
 
     meeting_key = None
@@ -97,8 +101,12 @@ def main() -> None:
     sessions = []
     if meeting_key is not None:
         sessions = service.client.fetch_sessions(meeting_key=meeting_key)
-    session_options = [s.get("session_name", str(s.get("session_key"))) for s in sessions]
-    session_choice = st.sidebar.selectbox("Sessão", session_options) if session_options else None
+    session_options = [
+        s.get("session_name", str(s.get("session_key"))) for s in sessions
+    ]
+    session_choice = (
+        st.sidebar.selectbox("Sessão", session_options) if session_options else None
+    )
 
     session_key = None
     if session_choice:

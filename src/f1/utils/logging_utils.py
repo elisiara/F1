@@ -33,4 +33,3 @@ def get_logger(name: str | None = None) -> logging.Logger:
         logger.addHandler(handler)
 
     return logger
-
