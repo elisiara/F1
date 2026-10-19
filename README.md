@@ -23,7 +23,8 @@ O projeto adota rigorosamente a arquitetura de **Layout `src/`**, garantindo sep
 ├── src/
 │   └── f1/                     # Pacote principal da aplicação
 │       ├── __init__.py
-│       ├── config/             # Configurações imutáveis e paths tipados (Settings)
+│       ├── dashboard.py        # composition root Streamlit
+        ├── config/             # Configurações imutáveis e paths tipados (Settings)
 │       │   ├── __init__.py
 │       │   └── settings.py
 │       ├── domain/             # Dataclasses imutáveis e schemas (Meeting, Session, Lap...)
@@ -137,6 +138,14 @@ poetry run ruff format --check .
 # Compilar documentação técnica em modo estrito
 poetry run mkdocs build --strict
 ```
+
+# Como executar a dashboard localmente
+
+1. Instalar dependências:
+   poetry install --with dev
+
+2. Rodar a dashboard:
+   poetry run streamlit run src/f1/dashboard.py
 
 ---
 
