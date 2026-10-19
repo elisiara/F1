@@ -76,16 +76,27 @@ O projeto adota rigorosamente a arquitetura de **Layout `src/`**, garantindo sep
 
 ### Pré-requisitos
 - Python `>= 3.12`
-- Poetry `>= 2.0`
+- Poetry `>= 2.0` - gerenciamento de depndências
+- Streamlit - interface web nterativa
+- Pydantic v2 - validação e modelagem de dados
+- OpenF1 API - dados oficiais de Fórmula 1
+- Pytest - testes unitários
+- Ruff - linting e formatação
+
 
 > ⚠️ **Importante**: Conforme a política do projeto, **não utilize `pip install`**. Todas as dependências devem ser gerenciadas pelo Poetry.
 
 ```bash
-# 1. Instalar todas as dependências declaradas no lockfile
-poetry install
+# 1. Instalação
+poetry install --with dev
 
 # 2. Conferir informações do ambiente virtual
 poetry env info
+
+
+# 3. Rodar a dashboard
+poetry run streamlit run src/f1/dashboard.py
+
 ```
 
 ---
@@ -138,14 +149,6 @@ poetry run ruff format --check .
 # Compilar documentação técnica em modo estrito
 poetry run mkdocs build --strict
 ```
-
-# Como executar a dashboard localmente
-
-1. Instalar dependências:
-   poetry install --with dev
-
-2. Rodar a dashboard:
-   poetry run streamlit run src/f1/dashboard.py
 
 ---
 
