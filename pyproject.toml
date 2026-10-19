@@ -25,14 +25,15 @@ packages = [{include = "f1", from = "src"}]
 pytest = "^8.3.0"
 pytest-cov = "^6.0.0"
 ruff = "^0.9.0"
+taskipy = "^2.4.0"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.6.0"
 mkdocs-material = "^9.5.0"
 
-# ==============================================================================
+# =================================================================             
 # Configurações do Ruff (Linter & Formatter)
-# ==============================================================================
+# =================================================================
 [tool.ruff]
 line-length = 88
 target-version = "py312"
@@ -64,9 +65,9 @@ indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "auto"
 
-# ==============================================================================
+# =================================================================
 # Configurações do Pytest e Cobertura Mínima Obrigatória (50%)
-# ==============================================================================
+# =================================================================
 [tool.pytest.ini_options]
 minversion = "8.0"
 testpaths = ["tests"]
@@ -97,4 +98,13 @@ exclude_lines = [
     "if __name__ == .__main__.:",
 ]
 
-
+[tool.taskipy]
+[tool.taskipy.tasks]
+# Rodar testes com cobertura e regra de falha definida no pytest/coverage
+test = "pytest"
+# Lint usando Ruff
+lint = "ruff check src tests"
+# Formatar código com Ruff
+format = "ruff format src tests"
+# Construir documentação com MkDocs
+docs = "mkdocs build"
